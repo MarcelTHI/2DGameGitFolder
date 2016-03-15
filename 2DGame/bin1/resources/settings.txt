@@ -6,6 +6,8 @@ MapPath##resources//map.txt
 StartPosX##200
 StartPosY##200
 PlayerVelocity##10
+PlayerWidth##50
+PlayerHeight##50
+CollisionPlayerWidth##50
+CollisionPlayerHeight##50
 TileManagerSourceFilePath##//resources//tileInfos.txt
-CollisionWidth##6
-CollisionHeight##3

@@ -19,8 +19,8 @@ public class GameManager {
 	private Player player;
 	//Fuer die Kollisionsabfrage
 	private int tileSize;
-	private int collisionWidth;
-	private int collisionHeight;
+	private int collisionPlayerWidth;
+	private int collisionPlayerHeight;
 	
 	private Map map;
 	
@@ -54,34 +54,14 @@ public class GameManager {
 	
 	private void initCollision()
 	{
-		collisionWidth = Integer.parseInt(settingManager.getSetting("CollisionWidth").getValue());
-		collisionHeight = Integer.parseInt(settingManager.getSetting("CollisionHeight").getValue());
+		collisionPlayerWidth = Integer.parseInt(settingManager.getSetting("CollisionPlayerWidth").getValue());
+		collisionPlayerHeight = Integer.parseInt(settingManager.getSetting("CollisionPlayerHeight").getValue());
 		tileSize = Integer.parseInt(settingManager.getSetting("TileSize").getValue());
-	}
-	
-	private List<Entity> getCollisionEntitys()
-	{
-		//List<Entity> list = new LinkedList<Entity>();
-		//double x = 0;
-		/*for(int entityIndex = 0; entityIndex < entityList.size(); entityIndex++)
-		{
-			if(entityList.get(entityIndex).getX() > player.getX() && 
-					(entityList.get(entityIndex).getX() - player.getX())/tileSize >= collisionWidth)
-				if(entityList.get(entityIndex).getY() > player.getY()&&
-						(entityList.get(entityIndex).getY() - player.getY())/tileSize >= collisionHeight)
-							list.add(entityList.get(entityIndex));
-			if	((x = entityList.get(entityIndex).getX()) < player.getX())
-			{
-				x += entityList.get(entityIndex).getWidth();
-			}
-		}*/
-		
-		return entityList;
 	}
 	
 	public void update()
 	{
-		player.update(getCollisionEntitys());
+		player.update();
 		
 		for(int entityIndex = 0; entityIndex < entityList.size(); entityIndex++)
 		{
@@ -101,6 +81,8 @@ public class GameManager {
 		return map;
 	}
 	public int getTileSize() { return tileSize; }
+	public int getCollisionPlayerWidth() { return collisionPlayerWidth; }
+	public int getCollisionPlayerHeight() { return collisionPlayerHeight; }
 	
 	
 }

@@ -30,10 +30,10 @@ public abstract class Entity {
 	protected double posX;
 	protected double posY;
 	
-	public Entity(int id, String name, double x, double y, int width, int height, GameManager gameManager)
+	public Entity(int id, String name, double xPos, double yPos, int width, int height, GameManager gameManager)
 	{
-		this.posX = x;
-		this.posY = y;
+		this.posX = xPos;
+		this.posY = yPos;
 		this.width = width;
 		this.height = height;
 		this.name = name;
@@ -41,7 +41,7 @@ public abstract class Entity {
 		
 		this.gameManager = gameManager;
 		
-		this.rectangle = new Rectangle((int)x, (int)y, width, height);
+		this.rectangle = new Rectangle((int)xPos, (int)yPos, width, height);
 		
 		
 	}

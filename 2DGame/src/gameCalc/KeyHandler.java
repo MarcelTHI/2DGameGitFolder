@@ -23,10 +23,10 @@ public class KeyHandler implements KeyListener{
 			System.exit(0);
 		}
 		
-		if(e.getKeyCode()==KeyEvent.VK_W)player.setDirection(1);
-		else if(e.getKeyCode()==KeyEvent.VK_S)player.setDirection(2);
-		else if(e.getKeyCode()==KeyEvent.VK_A)player.setDirection(3);
-		else if(e.getKeyCode()==KeyEvent.VK_D)player.setDirection(4);
+		if(e.getKeyCode()==KeyEvent.VK_W)player.setDirection(player.UP);
+		else if(e.getKeyCode()==KeyEvent.VK_S)player.setDirection(player.DOWN);
+		else if(e.getKeyCode()==KeyEvent.VK_A)player.setDirection(player.LEFT);
+		else if(e.getKeyCode()==KeyEvent.VK_D)player.setDirection(player.RIGHT);
 	}
 
 	public void keyReleased(KeyEvent e) {
@@ -35,12 +35,14 @@ public class KeyHandler implements KeyListener{
 		if(e.getKeyCode()==KeyEvent.VK_W
 			||e.getKeyCode()==KeyEvent.VK_S
 			||e.getKeyCode()==KeyEvent.VK_A
-			||e.getKeyCode()==KeyEvent.VK_D)player.setDirection(0);
+			||e.getKeyCode()==KeyEvent.VK_D)
+			{
+				System.out.println("Keine direction");
+				player.setDirection(player.NODIRECTION);
+			}
 		
 	}
 
-	public void keyTyped(KeyEvent e) {
-		
-	}
+	public void keyTyped(KeyEvent e) { }
 
 }
