@@ -1,0 +1,3 @@
+0##Nichts##false
+1##Stein##true
+2##Gras##true
