@@ -22,6 +22,8 @@ public class Main {
 	{
 		init();
 		startGame();
+		
+		System.out.println("wwww");
 	}
 	
 	private void init()
