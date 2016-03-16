@@ -8,6 +8,6 @@ StartPosY##200
 PlayerVelocity##10
 PlayerWidth##50
 PlayerHeight##50
-CollisionPlayerWidth##50
-CollisionPlayerHeight##50
+CollisionPlayerWidth##49
+CollisionPlayerHeight##49
 TileManagerSourceFilePath##//resources//tileInfos.txt
