@@ -29,15 +29,13 @@ public abstract class Entity {
 	
 	protected double posX;
 	protected double posY;
-	protected double velocity;
 	
-	public Entity(int id, String name, double xPos, double yPos, int width, int height, double velocity, GameManager gameManager)
+	public Entity(int id, String name, double xPos, double yPos, int width, int height, GameManager gameManager)
 	{
 		this.posX = xPos;
 		this.posY = yPos;
 		this.width = width;
 		this.height = height;
-		this.velocity = velocity;
 		this.name = name;
 		this.id = id;
 		
@@ -85,48 +83,6 @@ public abstract class Entity {
 		return rectangle;
 	}
 	protected GameManager getGameManager() { return gameManager; }
-	protected boolean upIsPossible()
-	{
-		if(getGameManager().getMap().getTile((int)(posX / getGameManager().getTileSize()), (int)((posY - velocity) / getGameManager().getTileSize())).isEnterable() &&
-				getGameManager().getMap().getTile((int)((posX + getGameManager().getCollisionPlayerWidth()) / getGameManager().getTileSize()), (int)((posY - velocity) / getGameManager().getTileSize())).isEnterable())
-			return true;
-		
-		System.out.println("oben nicht moeglich");
-		return false;
-	}
-	
-	protected boolean rightIsPossible()
-	{
-		if(getGameManager().getMap().getTile((int)((posX + getWidth())/ getGameManager().getTileSize()), (int)(posY / getGameManager().getTileSize())).isEnterable() && // -1, because if one leaves the value the player is not able to move right next to the object
-				getGameManager().getMap().getTile((int)((posX + getWidth())/ getGameManager().getTileSize()), (int)((posY + getGameManager().getCollisionPlayerHeight()) / getGameManager().getTileSize())).isEnterable())
-			return true;
-		
-		System.out.println("Rechts nicht moeglich");
-		return false;
-	}
-	
-	protected boolean downIsPossible()
-	{
-		if(getGameManager().getMap().getTile((int)(posX / getGameManager().getTileSize()), (int)((posY + getHeight()) / getGameManager().getTileSize())).isEnterable() &&
-				getGameManager().getMap().getTile((int)((posX + getGameManager().getCollisionPlayerWidth()) / getGameManager().getTileSize()), (int)((posY + getHeight()) / getGameManager().getTileSize())).isEnterable())
-		{
-			return true;
-		}
-		
-		System.out.println("unten nicht moeglich");
-		return false;
-	}
-	
-	protected boolean leftIsPossible()
-	{
-		if(getGameManager().getMap().getTile((int)((posX - velocity) / getGameManager().getTileSize()), (int)(posY / getGameManager().getTileSize())).isEnterable() &&
-				getGameManager().getMap().getTile((int)((posX - velocity) / getGameManager().getTileSize()), (int)((posY + getGameManager().getCollisionPlayerHeight()) / getGameManager().getTileSize())).isEnterable()	)
-			return true;
-			
-		System.out.println("links nicht moeglich");
-		return false;
-	}
-	
 	
 	public double getX() { return posX; }
 	public double getY() { return posY; }
@@ -139,7 +95,7 @@ public abstract class Entity {
 	
 	public Animation getCurrentAnimation() 
 	{ 
-		return animationList.get(currentAnimationId);
+		return animationList.get(currentAnimationId); 
 	}
 	public void nextAnimation()
 	{

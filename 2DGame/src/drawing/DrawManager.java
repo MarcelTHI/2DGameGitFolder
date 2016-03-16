@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import player.Player;
 import settings.SettingManager;
 
-public class DrawManager extends JFrame implements Runnable{
+public class DrawManager extends JFrame{
 	
 	//Instances to manager classes	
 	private GameManager gameManager;
@@ -61,7 +61,7 @@ public class DrawManager extends JFrame implements Runnable{
 		setLocationRelativeTo(null);
 		setLayout(null);
 		
-		drawLabel.setBounds(0, 0, 1500, 900);
+		drawLabel.setBounds(0, 0, FrameWidth, FrameHeight);
 		
 		add(drawLabel);
 		addKeyListener(keyHandler);
@@ -98,10 +98,8 @@ public class DrawManager extends JFrame implements Runnable{
 							TileSize,																	//Width
 							TileSize, 																	//Height
 							null);																		//ImageObserver
-					
 				}
 			}
-			
 			
 			//Player
 			/*g.fillRect(playerX,
@@ -117,10 +115,5 @@ public class DrawManager extends JFrame implements Runnable{
 			
 			
 		}
-	}
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
 	}
 }
